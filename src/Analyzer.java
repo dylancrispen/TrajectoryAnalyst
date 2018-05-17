@@ -5,7 +5,12 @@
 
 import java.util.*;
 
-
+/**
+ * @name Analyzer
+ * @brief Performs all simulation calculations
+ * @detail Analyzer performs a basic trajectory analysis ignoring drag for a given
+ * length of time. For now, the user chooses the max length of time.
+ * */
 public class Analyzer {
     private double[] xpositions;
     private double[] ypositions;

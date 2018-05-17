@@ -1,3 +1,8 @@
+/**
+ * @name PropertyManager
+ * @brief Houses all double properties to be used in calculation
+ * @detail Pretty lazy container based on string tags but it does its job for now
+ * */
 public class PropertyManager {
     private double MASS;
     private double RADIUS;

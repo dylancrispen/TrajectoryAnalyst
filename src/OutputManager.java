@@ -1,5 +1,8 @@
 import java.util.Scanner;
-
+/**
+ * @name OutputManager
+ * @brief Controls the user output post-simulation
+ * */
 public class OutputManager {
     private Analyzer analyst;
     private String prompt = "Select an output format:\n" +

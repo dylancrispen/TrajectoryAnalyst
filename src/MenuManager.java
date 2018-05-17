@@ -1,15 +1,23 @@
 import java.util.Scanner;
 
 
-
+/**
+ * @name MenuManager
+ * @brief Controls the user input for the beginning stages of the simulation
+ * @detail MenuManager is a singleton class primarily used to fill the
+ * properties contained in the PropertyManager field.
+ * */
 public class MenuManager {
+    //Singleton Pointer
     private static MenuManager menu_instance = null;
+
+    //Private variables
     private static PropertyManager properties;
 
+    //String prompts
     private String menu = "Please select a ball for the simulation:" +
             "\n\t1) Soccer Ball" +
             "\n\t2) Baseball";
-
     private String prompt1 = "Enter the initial velocity in the x-direction (m/s):";
     private String prompt2 = "Enter the initial velocity in the y-direction (m/s):";
 
@@ -19,7 +27,13 @@ public class MenuManager {
     private final double MASS_BASEBALL = 0.145;
     private final double RADIUS_BASEBALL = 0.07265;
 
-
+    /**
+     * @brief Sets the properties of the PropertyManager field
+     * @detail Using java.util.Scanner, the MenuManager gives the user two preset
+     * projectiles with which it sets its parameters. It also takes input for initial
+     * velocity for a 2-D simulation.
+     * @return The initialized property object
+     */
     public PropertyManager setProperties() {
         printMenu();
 
