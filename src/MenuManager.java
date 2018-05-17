@@ -1,5 +1,7 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
+
+
+
 public class MenuManager {
     private static MenuManager menu_instance = null;
     private static PropertyManager properties;
@@ -8,6 +10,9 @@ public class MenuManager {
             "\n\t1) Soccer Ball" +
             "\n\t2) Baseball";
 
+    private String prompt1 = "Enter the initial velocity in the x-direction (m/s):";
+    private String prompt2 = "Enter the initial velocity in the y-direction (m/s):";
+
     //Constants: masses in kilograms, radii in meters
     private final double MASS_SOCCER = 0.43;
     private final double RADIUS_SOCCER = 0.11;
@@ -15,25 +20,7 @@ public class MenuManager {
     private final double RADIUS_BASEBALL = 0.07265;
 
 
-    private MenuManager(){
-        System.out.println("Creating new Menu Manager");
-    }
-
-
-    public static MenuManager instance(){
-        if(menu_instance == null){
-            menu_instance = new MenuManager();
-        }
-        return menu_instance;
-    }
-
-
-    private void printMenu(){
-        System.out.println(menu);
-    }
-
-
-    public PropertyManager setProperties(){
+    public PropertyManager setProperties() {
         printMenu();
 
         Scanner in = new Scanner(System.in);
@@ -51,8 +38,34 @@ public class MenuManager {
             setProperties();
         }
 
+        System.out.println(prompt1);
+        double init_x = in.nextDouble();
+        properties.setValue("Vx_0",init_x);
+
+        System.out.println(prompt2);
+        double init_y = in.nextDouble();
+        properties.setValue("Vy_0",init_y);
+
+        System.out.println(properties.toString());
+
         return properties;
     }
 
 
+    private MenuManager(){
+        System.out.println("Creating new Menu Manager");
+    }
+
+
+    public static MenuManager instance() {
+        if(menu_instance == null){
+            menu_instance = new MenuManager();
+        }
+        return menu_instance;
+    }
+
+
+    private void printMenu(){
+        System.out.println(menu);
+    }
 }

@@ -31,6 +31,9 @@ public class ProgramDriver {
 
         properties = menu.setProperties();
 
+        Analyzer analyzer = new Analyzer(0.1 , properties);
+        analyzer.initializeSimulation();
+        analyzer.runSimulation();
     }
 
 
