@@ -33,14 +33,14 @@ public class Analyzer {
     }
 
 
-    void initializeSimulation(){
+    public void initializeSimulation(){
         xpositions[0] = 0.0;
         ypositions[0] = 0.0;
         Arrays.fill(xvelocities, pm.getValue("Vx_0"));
         yvelocities[0] = pm.getValue("Vy_0");
     }
 
-    double[][] runSimulation(){
+    public void runSimulation(){
         for(int i=1; i < xpositions.length; i++){
             double x_0 = xpositions[i-1];
             xpositions[i]=x_0+xvelocities[i]*time_scale;
@@ -53,8 +53,6 @@ public class Analyzer {
             yvelocities[i]=vy_0+accel*time_scale;
             ypositions[i]=y_0+yvelocities[i]*time_scale;
         }
-
-        return new double[][]{xpositions,ypositions};
     }
 
 
@@ -70,5 +68,12 @@ public class Analyzer {
         }
     }
 
+    public double[][] getPositions(){
+        return new double[][]{xpositions,ypositions};
+    }
+
+    public double[][] getVelocities(){
+        return new double[][]{xvelocities,yvelocities};
+    }
 
 }

@@ -34,6 +34,9 @@ public class ProgramDriver {
         Analyzer analyzer = new Analyzer(0.1 , properties);
         analyzer.initializeSimulation();
         analyzer.runSimulation();
+
+        OutputManager output = new OutputManager(analyzer);
+        output.promptUser();
     }
 
 
